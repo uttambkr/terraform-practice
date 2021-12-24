@@ -19,5 +19,5 @@ module "servers" {
 
 module "servers2" {
   source = "./module"
-  name   = "demo-repo2
+  name   = "demo-repo2"
 }
