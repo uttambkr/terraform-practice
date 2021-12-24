@@ -1,4 +1,4 @@
 resource "aws_ecr_repository" "demo-repository" {
-  name                 = "demo-repo"
+  name                 = var.name
   image_tag_mutability = "IMMUTABLE"
 }
