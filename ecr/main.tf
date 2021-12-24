@@ -14,4 +14,10 @@ provider "aws" {
 
 module "servers" {
   source = "./module"
+  name   = "demo-repo1"
+}
+
+module "servers2" {
+  source = "./module"
+  name   = "demo-repo2
 }
