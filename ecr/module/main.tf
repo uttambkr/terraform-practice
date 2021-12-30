@@ -15,7 +15,7 @@ variable "env" {
 }
 
 resource "aws_ecr_repository" "demo-repository" {
-  for_each             = toset([var.one, var.two,] if var.env == "DEV")
+  for_each             = toset([var.one, var.two,])
   name                 = each.value
   image_tag_mutability = "IMMUTABLE"
 }
