@@ -14,10 +14,13 @@ variable "env" {
   type = string
 }
 
+variable "colors" {
+  type    = list(string)
+  default = ["blue", "red"]
+}
+
 resource "aws_ecr_repository" "demo-repository" {
-  for_each = {
-    for value in var.one : var.env if var.env != "PROD"
-  }
+  for_each = toset([for e in var.colors : e.example])
   name                 = each.value
   image_tag_mutability = "IMMUTABLE"
 }
