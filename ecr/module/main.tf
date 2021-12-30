@@ -15,6 +15,7 @@ variable "env" {
 }
 
 resource "aws_ecr_repository" "demo-repository" {
-  name                 = var.env == "DEV" ? var.one : {}
+  for_each             = var.env == "DEV" ? var.one : {}
+  name                 = each.value
   image_tag_mutability = "IMMUTABLE"
 }
