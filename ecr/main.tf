@@ -12,12 +12,29 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+variable "name" {
+  type = string
+}
+
+variable "one" {
+  type = string
+  default = "one"
+}
+
+variable "two" {
+  type = string
+  default = "two"
+}
+
+variable "env" {
+  type = string
+  default = "DEV"
+}
+
 module "servers" {
   source = "./module"
   name   = "demo-repo1"
-}
-
-module "servers2" {
-  source = "./module"
-  name   = "demo-repo2"
+  one = var.one
+  two = var.two
+  env = var.env
 }
