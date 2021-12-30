@@ -1,7 +1,3 @@
-variable "name" {
-  type = string
-}
-
 variable "one" {
   type = string
 }
@@ -20,7 +16,7 @@ variable "colors" {
 }
 
 resource "aws_ecr_repository" "demo-repository" {
-  for_each = toset([for blue in var.colors : upper(blue) if var.env == "DEV"])
+  for_each = toset([for blue in var.colors : upper(blue) if var.env == "DEVa"])
   name                 = each.value
   image_tag_mutability = "IMMUTABLE"
 }
