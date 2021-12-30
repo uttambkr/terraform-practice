@@ -15,7 +15,10 @@ variable "env" {
 }
 
 resource "aws_ecr_repository" "demo-repository" {
-  for_each             = toset([var.one, var.two]) || var.env == "DEV" ? 1:0
+  for_each = {
+    for one in var.one :
+    if var.end != "PROD"
+  }
   name                 = each.value
   image_tag_mutability = "IMMUTABLE"
 }
