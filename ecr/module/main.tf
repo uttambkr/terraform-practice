@@ -20,7 +20,7 @@ variable "colors" {
 }
 
 resource "aws_ecr_repository" "demo-repository" {
-  for_each = toset([for e in var.colors : e.example])
+  for_each = toset([for e in var.colors : e.blue])
   name                 = each.value
   image_tag_mutability = "IMMUTABLE"
 }
